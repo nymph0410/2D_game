@@ -18,6 +18,10 @@ public class Controller2D : MonoBehaviour
 
     private Rigidbody2D rig;
 
+    [SerializeField]
+
+    private bool isGroued;
+
     private void OnDrawGizmos()
     {
         Gizmos.color = new Color(1, 0, 0.2f, 0.3f);
@@ -39,6 +43,7 @@ public class Controller2D : MonoBehaviour
     private void Update()
     {
         Flip();
+        CheckGround();
     }
 
     #region 方法
@@ -48,7 +53,7 @@ public class Controller2D : MonoBehaviour
     {
         //h值 指定為數入 取得倫向(水平) 水平倫代表左右鍵和A,D
         float h = Input.GetAxis("Horizontal");
-        print("玩家左右按鍵值" + h);
+        //print("玩家左右按鍵值" + h);
 
         //鋼體元件.加速度 = v新二為向量(h值 * 移動速度,0);
         rig.velocity = new Vector2(h * speed, rig.velocity.y);
@@ -70,5 +75,24 @@ public class Controller2D : MonoBehaviour
             transform.eulerAngles = Vector3.zero;
         }
     }
+
+    private void CheckGround()
+    {
+        Collider2D hit = Physics2D.OverlapCircle(transform.position +
+        transform.TransformDirection(checkGroundoffset), checkGroundRadius,canJumpLayer);
+
+        //print("碰到的物件名稱：" + hit.name);
+        isGroued = hit;
+    }
+
+    private void Jump()
+    {
+        if (isGroued && Input.GetKeyDown(keyJump))
+        {
+
+        }
+
+    }
+
     #endregion
 }

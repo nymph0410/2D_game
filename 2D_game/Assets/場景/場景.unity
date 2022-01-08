@@ -6893,7 +6893,8 @@ MonoBehaviour:
   keyJump: 32
   canJumpLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
+  isGroued: 0
 --- !u!1 &1148465933
 GameObject:
   m_ObjectHideFlags: 0
