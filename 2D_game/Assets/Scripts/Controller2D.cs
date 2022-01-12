@@ -14,9 +14,13 @@ public class Controller2D : MonoBehaviour
     [Header("跳躍按鍵與可跳躍圖層")]
     public  KeyCode keyJump = KeyCode.Space;
     public LayerMask canJumpLayer;
+    [Header("動畫參數：走路與跳躍")]
+    public string parameterWalk = "開關走路";
+    public string parameterJump = "開關跳躍";
 
 
     private Rigidbody2D rig;
+    private Animator ani;
 
     [SerializeField]
 
@@ -33,6 +37,7 @@ public class Controller2D : MonoBehaviour
     private void Start()
     {
         rig = GetComponent<Rigidbody2D>();
+        ani = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -44,6 +49,7 @@ public class Controller2D : MonoBehaviour
     {
         Flip();
         CheckGround();
+        Jump();
     }
 
     #region 方法
@@ -57,6 +63,9 @@ public class Controller2D : MonoBehaviour
 
         //鋼體元件.加速度 = v新二為向量(h值 * 移動速度,0);
         rig.velocity = new Vector2(h * speed, rig.velocity.y);
+
+        //當水平值不等於零勾選走路參數
+        ani.SetBool(parameterWalk, h != 0);
     
     }
 
@@ -83,13 +92,15 @@ public class Controller2D : MonoBehaviour
 
         //print("碰到的物件名稱：" + hit.name);
         isGroued = hit;
+
+        ani.SetBool(parameterJump, !isGroued);
     }
 
     private void Jump()
     {
         if (isGroued && Input.GetKeyDown(keyJump))
         {
-
+            rig.AddForce(new Vector2(0,jump));
         }
 
     }
