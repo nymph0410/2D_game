@@ -27,9 +27,9 @@ public class DiaLogueSysteam : MonoBehaviour
     /// <returns></returns>
     private IEnumerator TypeEffect(string[] contents) 
     {
-        ///string test1 = "哈囉，你好~";
-        ///string test2 = "我是第二段對話!";
-        ///string[] contents = { test1, test2 };
+        //string test1 = "哈囉，你好~";
+        //string test2 = "我是第二段對話!";
+        //string[] contents = { test1, test2 };
 
         textContent.text = "";
         goDialogue.SetActive(false);

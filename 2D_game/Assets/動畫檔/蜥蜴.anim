@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "\u8725\u8734_idle"
+  m_Name: "\u8725\u8734"
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
