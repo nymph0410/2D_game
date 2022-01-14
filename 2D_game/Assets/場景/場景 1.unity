@@ -31835,7 +31835,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3.5
   jump: 500
-  checkGroundRadius: 0.09
+  checkGroundRadius: 0.36
   checkGroundoffset: {x: 0.03, y: -0.45, z: 0}
   keyJump: 32
   canJumpLayer:
